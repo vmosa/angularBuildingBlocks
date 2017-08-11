@@ -1,5 +1,5 @@
 //'use strict';
-function loginFormController($scope, $element, $attrs){
+function loginFormController($scope, $element, $attrs, $http){
 	
 	var lfc=this;
 	var _namepass=[
@@ -23,20 +23,21 @@ function loginFormController($scope, $element, $attrs){
 	$scope.click=function(){
 		var p=$scope.pass;
 		var n=$scope.name;
-		for (var i=0; i< _namepass.length;i++){
-			console.log(_namepass[i].name+' '+n);
-			if ((angular.equals(_namepass[i].name,n)) && (angular.equals(_namepass[i].password,p))){
-				$scope.result=n+' '+p;
-				break;
+		$http.post('myurl',{username:n,password:p}).then(
+			function(response){
+				if (response.data.length>0){
+					$scope.result='Successfully logged in';
+				}
+				else{
+					$scope.result='try again! incorrect credentials!';
+				}
+			}).then(
+			function(response){
+				$scope.result='Error! The request could not be served! Error '+response.status;
 			}
-			else if(i==_namepass.length-1){
-				$scope.result='try again! incorrect credentials!';
-				
-			}
-		}
-		
-		
+		)
 	};
+		
 	
 	$scope.cancel=function(){
 		$scope.name='';
