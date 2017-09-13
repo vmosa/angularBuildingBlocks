@@ -1,0 +1,23 @@
+<div>
+<p>{{question}}</p>
+<form class="loginform" ng-repeat="q in options">
+<label>
+<input type="radio" name="answer" ng-model="$parent.answer" value="{{q}}"  />{{q}}</label><br/>
+
+</form>
+<input type="submit" ng-value="qButton"/>
+</div>
+
+
+
+<!--
+<form class="loginform">
+
+<input type="radio" name="answer" ng-model="answer" value="options[0]"/>{{options[0]}}<br/>
+<input type="radio" name="answer" ng-model="answer" value="{{options[1]}}"/>{{options[1]}}<br/>
+<input type="radio" name="answer" ng-model="answer" value="{{options[2]}}"/>{{options[2]}}<br/>
+<input type="radio" name="answer" ng-model="answer" value="{{options[3]}}"/>{{options[3]}}<br/>
+</form>
+<input type="submit" ng-value="qButton"/>
+</div>
+-->

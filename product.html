@@ -1,0 +1,17 @@
+<div class="product" onclick="$ctrl.click()">
+<table>
+<tr>
+<img ng-src="{{$ctrl.prod.imageUrl}}" height="140px" width="90%" alt="product image unavailable" style="margin-left:5px; margin-right:5px;"></img><br/>
+</tr>
+<tr>
+<p style="font-size: 14"> price: {{$ctrl.prod.price | currency: "&euro;"}}</p>
+</tr>
+<tr>
+<ul>specs
+<li>height: {{$ctrl.prod.specs.height}}</li>
+<li>weight: {{$ctrl.prod.specs.weight}}</li>
+</ul>
+</tr>
+</table>
+
+</div>
